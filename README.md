@@ -67,9 +67,9 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 * `modelo`        — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatorio)
 * `titulo`        — Texto padrão exibido no componente, semelhante ao placeholder do html
 * `webservice`    — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON)
-* `parametros`    — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`. 
-	* `exemplo da url:` `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=x&status_cli=y`
-* `campo`         — Define o nome da propriedade que irá ver visualizada uau-componente. 
+* `parametros`    — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`
+	* `exemplo de como ficaria a url:` `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=xxx&status_cli=yyy`
+* `campo`         — Define o nome da propriedade que irá ser visualizada no uau-componente. Normalmente um campo retornado da consulta do webservice.
  
 ## Usage Example
 
