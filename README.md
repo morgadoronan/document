@@ -4,13 +4,27 @@
 
 Inclua os arquivos abaixo na sua página.
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
-<script src="https://unpkg.com/classnames/index.js"></script>
-<script src="https://unpkg.com/react-input-autosize/dist/react-input-autosize.js"></script>
-<script src="https://unpkg.com/react-select/dist/react-select.js"></script>
+<!--angularjs scripts/modules -->
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-sanitize.min.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngModule/angular.ng-modules.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngStorage/ngStorage.min.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-touch.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-animate.js"></script>    
 
-<link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
+    <!-- ui-select files -->
+    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/select/js/select.js"></script>
+
+    <!-- themes -->
+    <link href="<%=ResolveUrl("~/")%>Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select2.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/selectize.default.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.css" rel="stylesheet" />
+
+    <!--scripts uau -->
+    <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-common.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.js"></script>
 ```
 
 After the install add the js, css and the moment files to your page.
