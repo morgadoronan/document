@@ -2,7 +2,7 @@
 
 ## Instalação
 
-Inclua os arquivos abaixo na sua página.
+Inclua os arquivos abaixo na sua página
 ```html
 <!--angularjs scripts/modules -->
 <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular.js"></script>
@@ -29,7 +29,7 @@ Inclua os arquivos abaixo na sua página.
 
 Adicione a dependência do `uau-componente` no seu módulo
 ```javascript
-angular.module('meuAPP', ['uau-componente']);
+angular.module('meuApp', ['uau-componente']);
 ```
 
 Crie um `controller` para seu módulo
@@ -38,6 +38,15 @@ Crie um `controller` para seu módulo
 ...
 });
 ```
+
+Referencie o módulo adicionando a diretiva `ng-app` na sua página
+```html
+<div ng-app="meuApp">
+...
+...
+</div>
+```
+
 Utilize a diretiva `uau-componente` na sua página juntamente com o input que irá armazenar os dados quando selecionado:
 
 ```html
@@ -45,17 +54,23 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 <uau-componente 
 	controle="meuControle"
 	modelo="exemplo"
-	titulo="'Selecione o exemplo'"
-	campo="campoExemplo"
-	webservice="'/api/Exemplo/ConsultarMeuExemplo'"
-	parametros="idexemplo">
+	titulo="Selecione o exemplo"
+	webservice="/api/Exemplo/ConsultarMeuExemplo"
+	parametros="cliente_cod;status_cli"
+	campo="empresa_cod;obra_cod">
 </uau-componente>
 ```
 
 ## Atributos
 ### diretiva uau-componente
-* `controle` — nome do controle
-
+* `controle`      — Nome do controle criado para o módulo (obrigatorio)
+* `modelo`        — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatorio)
+* `titulo`        — Texto padrão exibido no componente, semelhante ao placeholder do html
+* `webservice`    — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON)
+* `parametros`    — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`. 
+	* `exemplo da url:` `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=x&status_cli=y`
+* `campo`         — Define o nome da propriedade que irá ver visualizada uau-componente. 
+ 
 ## Usage Example
 
 [Live demo](https://rawgithub.com/g00fy-/angular-datepicker/master/app/index.html)
