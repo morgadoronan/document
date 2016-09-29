@@ -1,10 +1,4 @@
-# AngularJS datepicker directives
-
-#### Requirements
-
--  Angular v1.2+
--  MomentJS
--  Moment Timezone (If timezones are being used)
+# UAU-Componentes
 
 ## Installation
 
