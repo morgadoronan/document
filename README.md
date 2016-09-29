@@ -32,10 +32,25 @@ Adicione a dependência do `uau-componente` no seu módulo
 angular.module('meuAPP', ['uau-componente']);
 ```
 
+Crie um `controller` para seu módulo
+```javascript
+.controller('meuControle', function ($scope) {
+...
+});
+```
+Utilize a diretiva `uau-componente` na sua página juntamente com o input que irá armazenar os dados quando selecionado:
 
-Add the following module to your page : `datePicker`
-
-
+```html
+<input type="hidden" ng-model="exemplo" value="{{exemplo}}" id="txtMeuExemplo" runat="server" />
+<uau-componente 
+	controle="meuControle"
+	modelo="exemplo"
+	titulo="'Selecione o exemplo'"
+	campo="campoExemplo"
+	webservice="'/api/Exemplo/ConsultarMeuExemplo'"
+	parametros="idexemplo">
+</uau-componente>
+```
 ## Usage Example
 
 [Live demo](https://rawgithub.com/g00fy-/angular-datepicker/master/app/index.html)
