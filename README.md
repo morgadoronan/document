@@ -51,6 +51,11 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 	parametros="idexemplo">
 </uau-componente>
 ```
+
+## Atributos
+### diretiva uau-componente
+* `controle` — nome do controle
+
 ## Usage Example
 
 [Live demo](https://rawgithub.com/g00fy-/angular-datepicker/master/app/index.html)
