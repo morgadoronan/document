@@ -5,29 +5,33 @@
 Inclua os arquivos abaixo na sua página.
 ```html
 <!--angularjs scripts/modules -->
-    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular.js"></script>
-    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-sanitize.min.js"></script>
-    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngModule/angular.ng-modules.js"></script>
-    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngStorage/ngStorage.min.js"></script>
-    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-touch.js"></script>
-    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-animate.js"></script>    
+<script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular.js"></script>
+<script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-sanitize.min.js"></script>
+<script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngModule/angular.ng-modules.js"></script>
+<script src="<%=ResolveUrl("~/")%>UAUComponente/lib/ngStorage/ngStorage.min.js"></script>
+<script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-touch.js"></script>
+<script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-animate.js"></script>    
 
-    <!-- ui-select files -->
-    <script src="<%=ResolveUrl("~/")%>UAUComponente/lib/select/js/select.js"></script>
+<!-- ui-select files -->
+<script src="<%=ResolveUrl("~/")%>UAUComponente/lib/select/js/select.js"></script>
 
-    <!-- themes -->
-    <link href="<%=ResolveUrl("~/")%>Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select2.css" rel="stylesheet" />
-    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/selectize.default.css" rel="stylesheet" />
-    <link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select.css" rel="stylesheet" />
-    <link href="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.css" rel="stylesheet" />
+<!-- themes -->
+<link href="<%=ResolveUrl("~/")%>Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select2.css" rel="stylesheet" />
+<link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/selectize.default.css" rel="stylesheet" />
+<link href="<%=ResolveUrl("~/")%>UAUComponente/lib/select/css/select.css" rel="stylesheet" />
+<link href="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.css" rel="stylesheet" />
 
-    <!--scripts uau -->
-    <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-common.js"></script>
-    <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.js"></script>
+<!--scripts uau -->
+<script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-common.js"></script>
+<script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.js"></script>
 ```
 
-After the install add the js, css and the moment files to your page.
+Adicione a dependência do `uau-componente` no seu módulo
+```javascript
+angular.module('meuAPP', ['uau-componente']);
+```
+
 
 Add the following module to your page : `datePicker`
 
