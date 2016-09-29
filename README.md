@@ -1,18 +1,16 @@
 # UAU-Componentes
 
-## Installation
+## Instalação
 
-### via bower 
+Inclua os arquivos abaixo na sua página.
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+<script src="https://unpkg.com/classnames/index.js"></script>
+<script src="https://unpkg.com/react-input-autosize/dist/react-input-autosize.js"></script>
+<script src="https://unpkg.com/react-select/dist/react-select.js"></script>
 
-```
-bower install  angular-datepicker --save
-```
-
-
-### via npm 
-
-```
-npm install  angular-datepicker --save
+<link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
 ```
 
 After the install add the js, css and the moment files to your page.
