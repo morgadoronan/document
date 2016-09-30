@@ -63,16 +63,24 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 
 ## Atributos
 ### diretiva uau-componente
-* `controle` — Nome do controle criado para o módulo (obrigatorio)
-* `modelo` — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatorio)
-* `titulo` — Texto padrão exibido no componente, semelhante ao placeholder do html
-* `webservice` — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON)
-* `parametros` — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`
+* `controle` — Nome do controle criado para o módulo (obrigatorio).
+* `modelo` — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatorio).
+* `titulo` — Texto padrão exibido no componente, semelhante ao placeholder do html.
+* `webservice` — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON).
+* `parametros` — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`.
 	* exemplo de como ficaria a url: `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=xxx&status_cli=yyy`
 * `campo` — Define o nome da propriedade que irá ser visualizada no uau-componente. Normalmente um campo retornado da consulta do webservice.
-* `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado)
-* `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki)
-* `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, infome a quantidade 0`
+* `evento` — Cria um evento com o nome informado no atributo, que será disparado ao selecionar algum item do componente. Pode ser utilizado para carregar os dados de um componente a partir da seleção de outro componente.
+	* O evento pode ser recebido nos controllers da sua aplicação. Por exemplo: evento = "SELECIONAROBRA"
+		O evento disparado poderá ser recebido da seguinte forma:
+		`$rootScope.$on('SELECIONAROBRA', function (event, data) {
+		...
+		//data, contém o valor da seleção
+		...
+		});`
+* `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado).
+* `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki).
+* `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, infome a quantidade 0`.
 * `delay-request` — Tempo em milisegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
 * `useviewbag` — true/false. O padrão é false. Utilize SOMENTE para recuperar os dados selecionados em outra página. Todos os casos de utilização desse atributo serão analisado pela QS.
 	* Salva a seleção do componente para ser recupedara por outra página. Após ser recuperado, os dados são destruídos.
