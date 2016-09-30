@@ -70,8 +70,8 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 
 ## Atributos
 ### diretiva uau-componente
-* `controle` — Nome do controle criado para o módulo (obrigatorio).
-* `modelo` — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatorio).
+* `controle` — Nome do controle criado para o módulo (obrigatório).
+* `modelo` — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatório).
 * `titulo` — Texto padrão exibido no componente, semelhante ao placeholder do html.
 * `webservice` — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON).
 * `parametros` — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`.
