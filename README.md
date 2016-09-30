@@ -74,7 +74,10 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 * `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki)
 * `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, infome a quantidade 0`
 * `delay-request` — Tempo em milisegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
- 
+* `useviewbag` — true/false. O padrão é false. Só deve ser utilizada em casos específicos.
+	* Salva a seleção do componente para ser recupedara por outra página. Após ser recuperado, os dados são destruídos.
+	* Para obter o dado utilize sessao.get("seuModelo"), onde `seuModelo` é o modelo do componente.
+
 ## Usage Example
 
 [Live demo](https://rawgithub.com/g00fy-/angular-datepicker/master/app/index.html)
