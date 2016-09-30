@@ -1,5 +1,10 @@
 # UAU-Componentes
 
+#### Materiais de apoio
+
+-  [Vídeo aula sobre AngularJS](https://www.youtube.com/watch?v=_y7rKxqPoyg&list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
+-  [Exemplo prático UAU-Componente](http://globaltec.uau.com.br/sites/Globaltec/)
+
 ## Instalação
 
 Inclua os arquivos abaixo na sua página
@@ -73,11 +78,13 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 * `evento` — Cria um evento com o nome informado no atributo, que será disparado ao selecionar algum item do componente. Pode ser utilizado para carregar os dados de um componente a partir da seleção de outro componente.
 	* O evento pode ser recebido nos controllers da sua aplicação. Por exemplo: evento = "SELECIONAROBRA"
 		O evento disparado poderá ser recebido da seguinte forma:
+		
 		`$rootScope.$on('SELECIONAROBRA', function (event, data) {
 		...
 		//data, contém o valor da seleção
 		...
 		});`
+		
 * `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado).
 * `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki).
 * `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, infome a quantidade 0`.
