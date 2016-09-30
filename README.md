@@ -79,11 +79,13 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 	* O evento pode ser recebido nos controllers da sua aplicação. Por exemplo: evento = "SELECIONAROBRA"
 		O evento disparado poderá ser recebido da seguinte forma:
 		
-		`$rootScope.$on('SELECIONAROBRA', function (event, data) {
-		...
-		//data, contém o valor da seleção
-		...
-		});`
+		```javascript
+		$rootScope.$on('SELECIONAROBRA', function (event, data) {
+			...
+			//data, contém o valor da seleção
+			...
+		});
+		```
 		
 * `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado).
 * `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki).
@@ -91,9 +93,36 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 * `delay-request` — Tempo em milisegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
 * `useviewbag` — true/false. O padrão é false. Utilize SOMENTE para recuperar os dados selecionados em outra página. Todos os casos de utilização desse atributo serão analisado pela QS.
 	* Salva a seleção do componente para ser recupedara por outra página. Após ser recuperado, os dados são destruídos.
-	* Para obter o dado utilize sessao.get("seuModelo"), onde `seuModelo` é o modelo do componente.
+	* Para obter o dado utilize sessao.get("seuModelo"), onde `seuModelo` é o modelo do componente (atributo modelo acima).
 
-## Usage Example
+### Evento `refresh`
+
+O UAU-Componente realizam um `refresh` dos dados em duas situações:
+* Quando são carregados com a página, bastando informar o atributo `min-caracteres-request` igual a `0`
+* Quando é realizado filtro de busca no componente:
+	* para receber o evento que dispara ao digitar no componente (obedecendo os atributos `min-caracteres-request` e `delay-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. Por exemplo: modelo = "empreendimento"
+	
+	```javascript
+	$scope.buscarItemempreendimento = function (filtroItem) {
+		//filtroItem contém o texto digitado no componente
+		//Caso precise passar mais de um parâmetro para o webservice, os mesmos devem ser adicionados em um array.
+		
+		var valores = [];
+		 
+        	valores.push(filtroItem);		 
+		valores.push($scope.empresa_cod);
+		valores.push($scope.obra_obr);
+		
+		//a url do webservice será montada de acordo com os parâmetros informados no atributo parametros (veja acima) e dos valores informados no array "valores"
+		
+		$scope.PreencherComponente(valores, "empreendimento");
+	};
+	```
+	Dessa forma tudo que é digitado no componente será filtrado na combobox.
+	
+	
+
+
 
 [Live demo](https://rawgithub.com/g00fy-/angular-datepicker/master/app/index.html)
 
