@@ -46,6 +46,7 @@ Crie um `controller` para seu módulo
 
 Referencie o módulo adicionando a diretiva `ng-app` na sua página
 ```html
+<!--na página-->
 <div ng-app="meuApp">
 ...
 ...
@@ -55,6 +56,7 @@ Referencie o módulo adicionando a diretiva `ng-app` na sua página
 Utilize a diretiva `uau-componente` na sua página juntamente com o input que irá armazenar os dados quando selecionado:
 
 ```html
+<!--na página-->
 <input type="hidden" ng-model="exemplo" value="{{exemplo}}" id="txtMeuExemplo" runat="server" />
 <uau-componente 
 	controle="meuControle"
@@ -80,6 +82,7 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 		O evento disparado poderá ser recebido da seguinte forma:
 		
 		```javascript
+		//no controller
 		$rootScope.$on('SELECIONAROBRA', function (event, data) {
 			...
 			//data, contém o valor da seleção
@@ -103,6 +106,7 @@ O UAU-Componente realizam um `refresh` dos dados em duas situações:
 	* para receber o evento que dispara ao digitar no componente (obedecendo os atributos `min-caracteres-request` e `delay-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. Por exemplo: modelo = "empreendimento"
 	
 	```javascript
+	//No controller
 	$scope.buscarItemempreendimento = function (filtroItem) {
 		//filtroItem contém o texto digitado no componente
 		//Caso precise passar mais de um parâmetro para o webservice, os mesmos devem ser adicionados em um array.
