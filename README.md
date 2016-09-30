@@ -112,8 +112,8 @@ O UAU-Componente realizam um `refresh` dos dados em duas situações:
 		//Caso precise passar mais de um parâmetro para o webservice, os mesmos devem ser adicionados em um array.
 		
 		var valores = [];
-		 
-        	valores.push(filtroItem);		 
+		
+		valores.push(filtroItem);		 
 		valores.push($scope.empresa_cod);
 		valores.push($scope.obra_obr);
 		
