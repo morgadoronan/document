@@ -83,9 +83,9 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 		
 		```javascript
 		//no controller
-		$rootScope.$on('SELECIONAROBRA', function (event, data) {
+		$rootScope.$on('SELECIONAROBRA', function (event, daos) {
 			...
-			//data, contém o valor da seleção
+			//dados, contém o valor da seleção
 			...
 		});
 		```
