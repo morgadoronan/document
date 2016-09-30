@@ -83,7 +83,7 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 		
 		```javascript
 		//no controller
-		$rootScope.$on('SELECIONAROBRA', function (event, daos) {
+		$rootScope.$on('SELECIONAROBRA', function (event, dados) {
 			...
 			//dados, contém o valor da seleção
 			...
@@ -92,10 +92,10 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 		
 * `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado).
 * `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki).
-* `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, infome a quantidade 0`.
-* `delay-request` — Tempo em milisegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
+* `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, informe a quantidade 0`.
+* `delay-request` — Tempo em milissegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
 * `useviewbag` — true/false. O padrão é false. Utilize SOMENTE para recuperar os dados selecionados em outra página. Todos os casos de utilização desse atributo serão analisado pela QS.
-	* Salva a seleção do componente para ser recupedara por outra página. Após ser recuperado, os dados são destruídos.
+	* Salva a seleção do componente para ser recuperada por outra página. Após ser recuperado, os dados são destruídos.
 	* Para obter o dado utilize sessao.get("seuModelo"), onde `seuModelo` é o modelo do componente (atributo modelo acima).
 
 ### Evento `refresh`
@@ -118,7 +118,7 @@ O UAU-Componente realizam um `refresh` dos dados em duas situações:
 		valores.push($scope.obra_obr);
 		
 		//a url do webservice será montada de acordo com os parâmetros informados
-		//no atributo parametros (veja acima) e dos valores informados no array "valores"
+		//no atributo "parametros" (veja acima) e dos valores informados no array "valores"
 		//e automaticamente recarregar a combobox com os dados retornados da consulta
 		
 		$scope.PreencherComponente(valores, "empreendimento");
