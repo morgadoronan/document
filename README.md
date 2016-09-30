@@ -70,6 +70,8 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 * `parametros`    — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`
 	* exemplo de como ficaria a url: `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=xxx&status_cli=yyy`
 * `campo`         — Define o nome da propriedade que irá ser visualizada no uau-componente. Normalmente um campo retornado da consulta do webservice.
+* `disable`       — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado)
+* `usegrid`       — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki)
  
 ## Usage Example
 
