@@ -178,8 +178,8 @@ angular.module('cadastroatendimento', ['uaucomponente'])
                         <div class="form-group">
 			    <label for="Empreendimento">Empreendimento:</label>       
                             <input type="hidden" ng-model="empreendimento" value="{{empreendimento}}" id="txtEmpObr" runat="server" />
-                            <uau-componente 
-                                controle="ctrlCadastroatendimento"
+                            <uau-componente
+			    	controle="ctrlCadastroatendimento"
 				modelo="empreendimento"
 				titulo="Selecione o empreendimento"
 				webservice="/api/EmpObra/ConsultarEmpresasObrasDoCliente"
@@ -189,7 +189,7 @@ angular.module('cadastroatendimento', ['uaucomponente'])
                             </uau-componente>
                         </div>
                     </div>
-                </div>
+		</div>
 	    </div>
 	</div>
     </div>
