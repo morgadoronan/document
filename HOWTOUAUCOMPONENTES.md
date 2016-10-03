@@ -190,6 +190,5 @@ angular.module('cadastroatendimento', ['uaucomponente'])
 			</div>
 		</div>
 	</div>
-    </div>
 </asp:Content>
 ```
