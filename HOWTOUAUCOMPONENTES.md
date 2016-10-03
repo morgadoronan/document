@@ -130,3 +130,68 @@ angular.module('cadastroatendimento', ['uaucomponente'])
 	};
 });
 ```
+
+## Parte da página CadastroAtendimento.aspx
+```html
+<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/UauWeb/Master/mpUauWeb.Master"
+    CodeBehind="CadastroAtendimento.aspx.vb" Inherits="UauWeb_site.CadastroAtendimento" %>
+
+<%@ Register Src="~/Pages/wucGeral/wcProgressUpload.ascx" TagName="wcProgressUpload" TagPrefix="uc1" %>
+<%@ Register Src="~/Pages/wucGeral/wcMensagemDvExp.ascx" TagPrefix="uc1" TagName="wcMensagemDvExp" %>
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <!--angularjs scripts/modules -->
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-sanitize.min.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/ngModule/angular.ng-modules.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/ngStorage/ngStorage.min.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-touch.js"></script>
+    <script src="<%=ResolveUrl("~/")%>Scripts/angularjs/angular-animate.js"></script>    
+
+    <!-- ui-select files -->
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/select/js/select.js"></script>
+
+    <!-- themes -->
+    <link href="<%=ResolveUrl("~/")%>Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/select/css/select2.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/select/css/selectize.default.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponenteJS/lib/select/css/select.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/")%>UAUComponenteJS/src/uau-componente.css" rel="stylesheet" />
+
+    <!--scripts uau -->
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/src/uau-common.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/src/uau-componente.js"></script>
+    <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/diretivas/SelEmpObra/SelEmpObraDirective.js"></script>
+    <script src="<%=ResolveUrl("~/")%>MVCUAU/Paginas/Atendimento/CadastroAtendimento/CadastroAtendimento.js"></script>
+      
+    <div id="dvAtendimento" ng-app="cadastroatendimento">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Novo Atendimento</strong>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+			    <label for="Empreendimento">Empreendimento:</label>       
+                            <input type="hidden" ng-model="empreendimento" value="{{empreendimento}}" id="txtEmpObr" runat="server" />
+                            <uau-componente 
+                                controle="ctrlCadastroatendimento"
+				modelo="empreendimento"
+				titulo="Selecione o empreendimento"
+				webservice="/api/EmpObra/ConsultarEmpresasObrasDoCliente"
+				parametros="filtro"
+				campo="empresa_cod;obra_cod"
+				min-caracteres-request ="0">
+                            </uau-componente>
+                        </div>
+                    </div>
+                </div>
+	    </div>
+	</div>
+    </div>
+</asp:Content>
+```
