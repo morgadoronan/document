@@ -195,6 +195,6 @@ angular.module('cadastroatendimento', ['uaucomponente'])
 
 ## Resultado
 
-![Selecionar empreendimento](https://github.com/diogoucg/document/blob/master/comp.png)
-
 ![Selecionar empreendimento](https://github.com/diogoucg/document/blob/master/comp2.png)
+
+![Selecionar empreendimento](https://github.com/diogoucg/document/blob/master/comp.png)
