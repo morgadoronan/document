@@ -1,11 +1,22 @@
-# UAU-Componentes
+# Exemplo prático UAU-Componentes
+
+Nesse tutorial será apresentado a estrutura do UAU-Componentes, como adicionar os arquivos dependentes, a funcionalidade da tag <uau-componente> e como carregar e recuperar dados no componente.
 
 #### Materiais de apoio
 
 -  [Vídeo aula sobre AngularJS](https://www.youtube.com/watch?v=_y7rKxqPoyg&list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
--  [Exemplo prático UAU-Componente](http://globaltec.uau.com.br/sites/Globaltec/)
+-  [Documentação UAU-Componente](https://github.com/diogoucg/document/blob/master/README.md)
 
-## Instalação
+## Estrutura
+![Estrutura do UAU-Componente](https://github.com/diogoucg/document/blob/master/estrutura.png)
+* diretivas: diretivas personalizadas
+* lib: todas as bibliotecas usadas pelo uau-componente
+* src
+	* uau-common.js: factory's e filter's utilizadas no uau-componente
+	* uau-componente.css: estilo dos templates do uau-componente
+	* uau-componente.js: core do uau-componente
+
+
 
 Inclua os arquivos abaixo na sua página
 ```html
