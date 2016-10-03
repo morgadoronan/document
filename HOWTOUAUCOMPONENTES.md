@@ -43,103 +43,90 @@ Inclua os arquivos abaixo na sua página
 <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.js"></script>
 ```
 
-## Criação do módulo de sua página
+## Criação do módulo referente à pagina
 
-Crie um arquivo *.js na pasta 
+Crie um arquivo *.js na mesma pasta de sua página e coloque o nome seguindo os conceitos do MVCUAU.
 ![Estrutura do UAU-Componente](https://github.com/diogoucg/document/blob/master/estrutura2.png)
 
+Por exemplo: `CadastroAtendimento.js`
 
+No arquivo .js, adicione o módulo e a depedência do `uau-componente`.
+Crie um nome para seu módulo que referencie a página. Por exemplo: `cadastroatendimento`
 
-Adicione a dependência do `uau-componente` no seu módulo
 ```javascript
-angular.module('meuApp', ['uau-componente']);
+angular.module('cadastroatendimento', ['uau-componente'])
 ```
 
-Crie um `controller` para seu módulo
+Em seguida crie um `controller` para seu módulo.
+
 ```javascript
-.controller('meuControle', function ($scope) {
+.controller('ctrlCadastroatendimento', function ($scope) {
 ...
 });
 ```
 
-Referencie o módulo adicionando a diretiva `ng-app` na sua página
+Voltando para a página html/aspx, referencie o módulo `cadastroatendimento` adicionando a diretiva `ng-app` na sua página.
 ```html
 <!--na página-->
-<div ng-app="meuApp">
+<div ng-app="cadastroatendimento">
 ...
+`aqui está todo o corpo de sua página`
 ...
 </div>
 ```
+## Utilização da diretiva uau-componente
 
 Utilize a diretiva `uau-componente` na sua página juntamente com o input que irá armazenar os dados quando selecionado:
 
 ```html
 <!--na página-->
-<input type="hidden" ng-model="exemplo" value="{{exemplo}}" id="txtMeuExemplo" runat="server" />
+<input type="hidden" ng-model="empreendimento" value="{{empreendimento}}" id="txtEmpObr" runat="server" />
 <uau-componente 
-	controle="meuControle"
-	modelo="exemplo"
-	titulo="Selecione o exemplo"
-	webservice="/api/Exemplo/ConsultarMeuExemplo"
-	parametros="cliente_cod;status_cli"
-	campo="empresa_cod;obra_cod">
+	controle="ctrlCadastroatendimento"
+	modelo="empreendimento"
+	titulo="Selecione o empreendimento"
+	webservice="/api/EmpObra/ConsultarEmpresasObrasDoCliente"
+	parametros="filtro"
+	campo="empresa_cod;obra_cod"
+	min-caracteres-request ="0">
 </uau-componente>
 ```
 
-## Atributos
-### diretiva uau-componente
-* `controle` — Nome do controle criado para o módulo (obrigatório).
-* `modelo` — Nome do scope da diretiva. Vincula o dado selecionado ao input do uau-componente (obrigatório).
-* `titulo` — Texto padrão exibido no componente, semelhante ao placeholder do html.
-* `webservice` — Endereço do webservice que retornará os dados para o uau-componente  (deve retornar JSON).
-* `parametros` — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`.
-	* exemplo de como ficaria a url: `/api/Exemplo/ConsultarMeuExemplo?cliente_cod=xxx&status_cli=yyy`
-* `campo` — Define o nome da propriedade que irá ser visualizada no uau-componente. Normalmente um campo retornado da consulta do webservice.
-* `evento` — Cria um evento com o nome informado no atributo, que será disparado ao selecionar algum item do componente. Pode ser utilizado para carregar os dados de um componente a partir da seleção de outro componente.
-	* O evento pode ser recebido nos controllers da sua aplicação. Por exemplo: evento = "SELECIONAROBRA"
-		O evento disparado poderá ser recebido da seguinte forma:
-		
-		```javascript
-		//no controller
-		$rootScope.$on('SELECIONAROBRA', function (event, dados) {
-			...
-			//dados, contém o valor da seleção
-			...
-		});
-		```
-		
-* `disable` — true/false. Desabilita/Habilita o componente. O padrão é false (habilitado).
-* `usegrid` — true/false. Cria um grid vinculado ao componente. As especificações e propriedades do grid podem ser criadas no controller do seu componente, [clique aqui para detalhes.](https://github.com/angular-ui/ui-grid/wiki).
-* `min-caracteres-request` — Quantidade de caracteres requeridos antes que seja realizada uma requisição no webservice. O padrão é 3 caracteres. `Caso necessite que os dados sejam carregados ao carregar a página, informe a quantidade 0`.
-* `delay-request` — Tempo em milissegundos após a digitação para que seja realizada a requisição no webservice. O padrão é 500
-* `useviewbag` — true/false. O padrão é false. Utilize SOMENTE para recuperar os dados selecionados em outra página. Todos os casos de utilização desse atributo serão analisado pela QS.
-	* Salva a seleção do componente para ser recuperada por outra página. Após ser recuperado, os dados são destruídos.
-	* Para obter o dado utilize sessao.get("seuModelo"), onde `seuModelo` é o modelo do componente (atributo modelo acima).
+* controle: Nome do controle criado em seu módulo.
+* modelo: Nome do scopo da diretiva.
+* titulo: Texto padrão exibido no componente, semelhante ao placeholder do html.
+* webservice: Endereço do webservice que retornará os dados para o uau-componente  (o webservice deve retornar JSON).
+* parametros — Nome dos parâmetros que compõe o webservice. Caso seja mais de um, separar por `;`.
+* campo — Define o nome da propriedade que irá ser visualizada no uau-componente. Normalmente um campo retornado da consulta do webservice (Será exibido `1-00000`, código da empresa - código da obra).
+* min-caracteres-request: Informando `0` os dados serão carregados ao carregar a página.
 
-### Evento `refresh`
+### Atualizando os dados no uau-componente
 
-O UAU-Componente realizam um `refresh` dos dados em duas situações:
+O UAU-Componente realiza um `refresh` dos dados em duas situações:
 * Quando são carregados com a página, bastando informar o atributo `min-caracteres-request` igual a `0`
 * Quando é realizado filtro de busca no componente:
-	* para receber o evento que dispara ao digitar no componente (obedecendo os atributos `min-caracteres-request` e `delay-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. Por exemplo: modelo = "empreendimento"
+	* para receber o evento que dispara ao digitar no componente (obedecendo os atributos `min-caracteres-request` e `delay-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. No nosso exemplo: modelo = "empreendimento"
 	
 	```javascript
-	//No controller
+	//Continuando o controller
 	$scope.buscarItemempreendimento = function (filtroItem) {
 		//filtroItem contém o texto digitado no componente
-		//Caso precise passar mais de um parâmetro para o webservice, os mesmos devem ser adicionados em um array.
 		
-		var valores = [];
-		
-		valores.push(filtroItem);		 
-		valores.push($scope.empresa_cod);
-		valores.push($scope.obra_obr);
-		
-		//a url do webservice será montada de acordo com os parâmetros informados
-		//no atributo "parametros" (veja acima) e dos valores informados no array "valores"
-		//e automaticamente recarregar a combobox com os dados retornados da consulta
-		
-		$scope.PreencherComponente(valores, "empreendimento");
+		//repare que é necessário passar o nome do modelo na função `PreencherComponente`
+		$scope.PreencherComponente(filtroItem, "empreendimento");
 	};
 	```
-	
+## CadastroAtendimento.js completo
+
+```javascript
+angular.module('cadastroatendimento', ['uaucomponente'])
+
+.controller('ctrlCadastroatendimento', function ($scope) {
+	$scope.buscarItemempreendimento = function (filtroItem) {
+		//filtroItem contém o texto digitado no componente
+		
+		//repare que é necessário passar o nome do modelo na função `PreencherComponente`
+		$scope.PreencherComponente(filtroItem, "empreendimento");
+	};
+});
+```
