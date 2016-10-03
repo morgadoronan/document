@@ -167,5 +167,29 @@ angular.module('cadastroatendimento', ['uaucomponente'])
     <script src="<%=ResolveUrl("~/")%>UAUComponenteJS/diretivas/SelEmpObra/SelEmpObraDirective.js"></script>
     <script src="<%=ResolveUrl("~/")%>MVCUAU/Paginas/Atendimento/CadastroAtendimento/CadastroAtendimento.js"></script>
       
-    <div id="dvAtendimento" ng-app="cadastroatendimento"><div class="panel panel-default"><div class="panel-heading"><strong>Novo Atendimento</strong></div><div class="panel-body"><div class="row"><div class="col-xs-12"><div class="form-group"><label for="Empreendimento">Empreendimento:</label><input type="hidden" ng-model="empreendimento" value="{{empreendimento}}" id="txtEmpObr" runat="server" /><uau-componente controle="ctrlCadastroatendimento" modelo="empreendimento" titulo="Selecione o empreendimento" webservice="/api/EmpObra/ConsultarEmpresasObrasDoCliente" parametros="filtro" campo="empresa_cod;obra_cod" min-caracteres-request ="0"></uau-componente></div></div></div></div></div></div></asp:Content>
+    <div id="dvAtendimento" ng-app="cadastroatendimento">
+    	<div class="panel panel-default">
+		<div class="panel-heading"><strong>Novo Atendimento</strong></div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="Empreendimento">Empreendimento:</label>
+						<input type="hidden" ng-model="empreendimento" value="{{empreendimento}}" id="txtEmpObr" runat="server" />
+						<uau-componente
+							controle="ctrlCadastroatendimento"
+							modelo="empreendimento"
+							titulo="Selecione o empreendimento"
+							webservice="/api/EmpObra/ConsultarEmpresasObrasDoCliente"
+							parametros="filtro"
+							campo="empresa_cod;obra_cod"
+							min-caracteres-request ="0">
+						</uau-componente>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+</asp:Content>
 ```
