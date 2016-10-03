@@ -169,9 +169,7 @@ angular.module('cadastroatendimento', ['uaucomponente'])
       
     <div id="dvAtendimento" ng-app="cadastroatendimento">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <strong>Novo Atendimento</strong>
-            </div>
+            <div class="panel-heading"><strong>Novo Atendimento</strong></div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12">
@@ -187,10 +185,10 @@ angular.module('cadastroatendimento', ['uaucomponente'])
 					min-caracteres-request ="0">
 				</uau-componente>
 			</div>
-		</div>
-	</div>
-</div>
-</div>
+		   </div>
+	      </div>
+         </div>
+     </div>
 </div>
 </asp:Content>
 ```
