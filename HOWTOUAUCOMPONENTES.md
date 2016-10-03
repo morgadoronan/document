@@ -16,7 +16,7 @@ Nesse tutorial será apresentado a estrutura do UAU-Componentes, como adicionar 
 	* uau-componente.css: estilo dos templates do uau-componente
 	* uau-componente.js: core do uau-componente
 
-
+## Adicione as dependências
 
 Inclua os arquivos abaixo na sua página
 ```html
@@ -42,6 +42,13 @@ Inclua os arquivos abaixo na sua página
 <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-common.js"></script>
 <script src="<%=ResolveUrl("~/")%>UAUComponente/src/uau-componente.js"></script>
 ```
+
+## Criação do módulo de sua página
+
+Crie um arquivo *.js na pasta 
+![Estrutura do UAU-Componente](https://github.com/diogoucg/document/blob/master/estrutura2.png)
+
+
 
 Adicione a dependência do `uau-componente` no seu módulo
 ```javascript
