@@ -105,7 +105,7 @@ Utilize a diretiva `uau-componente` na sua página juntamente com o input que ir
 O UAU-Componente realiza um `refresh` dos dados em duas situações:
 * Quando são carregados com a página, bastando informar o atributo `min-caracteres-request` igual a `0`
 * Quando é realizado filtro de busca no componente:
-	* para receber o evento que dispara ao digitar no componente (obedecendo os atributos `min-caracteres-request` e `delay-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. No nosso exemplo: modelo = "empreendimento"
+	* para receber o evento que dispara ao digitar no componente (obedecendo o atributo `min-caracteres-request`) é necessário acrescentar no controller a função escopo `$scope.buscarItemNOMEDOMODELO`. No nosso exemplo: modelo = "empreendimento"
 	
 	```javascript
 	//Continuando o controller
