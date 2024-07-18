@@ -3,7 +3,7 @@
 #### Materiais de apoio
 
 -  [Vídeo aula sobre AngularJS](https://www.youtube.com/watch?v=_y7rKxqPoyg&list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb)
--  [Exemplo prático UAU-Componente](http://globaltec.uau.com.br/sites/Globaltec/)
+-  [Exemplo prático UAU-Componente](https://www.youtube.com/watch?v=DY3HsOO4THo&t=517s)
 
 ## Instalação
 
